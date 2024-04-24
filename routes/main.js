@@ -14,11 +14,12 @@ router.post('/login', authController.postLogin)
 router.get('/logout', authController.logout) 
 
 // API
-
+/*
 router.get('/api/students', ensureAuth, apiController.getList)
 router.post('/api/addStudent', ensureAuth, apiController.addStudent)
 router.get('/api/student:id', ensureAuth, apiController.getStudent)
 router.post('/api/student:id', ensureAuth, apiController.updateStudent)
+*/
 // Could use a method override there but why bother when the controller does whatever I want it to
 
 

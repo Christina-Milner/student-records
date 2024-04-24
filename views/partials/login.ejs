@@ -1,0 +1,17 @@
+<h1>Log in here, yo</h1>
+
+<% if (locals.messages.errors) { %>
+    <% messages.errors.forEach( el => { %>
+        <div class="alert"><%= el.msg %></div>
+    <% }) %>    
+<% } %>
+<% if (locals.messages.info) { %>
+    <% messages.info.forEach( el => { %>
+        <div class="alert"><%= el.msg %></div>
+    <% }) %>    
+<% } %>
+<form action="/login" method="POST" class="login">
+    <input type="text" name="username" placeholder="User name">
+    <input type="password" name="password" placeholder="Password">
+    <input type="submit" value="Submit">
+</form>
