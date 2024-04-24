@@ -18,9 +18,11 @@ router.get('/logout', authController.logout)
 router.get('/api/students', ensureAuth, apiController.getList)
 router.post('/api/addStudent', ensureAuth, apiController.addStudent)
 router.get('/api/student:id', ensureAuth, apiController.getStudent)
+router.put('/api/student:id', ensureAuth, apiController.updateStudent)
 router.post('/api/student:id', ensureAuth, apiController.updateStudent)
+router.delete('/api/student:id', ensureAuth, apiController.deleteStudent)
 */
-// Could use a method override there but why bother when the controller does whatever I want it to
+
 
 
 
