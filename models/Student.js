@@ -5,7 +5,8 @@ const StudentSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
     email: String,
-    dateOfBirth: Date,
+    dateOfBirth: String,
+    // Mongo seems to be a PITA about dates and we don't actually need this for anything
   })
 
   module.exports = mongoose.model('Student', StudentSchema)
