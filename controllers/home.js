@@ -5,7 +5,13 @@ module.exports = {
     errorMes: (req, res) => {
         res.render('error.ejs')
     },
-    getIndex: (req, res) => {
-        res.render('index.ejs', { isAuthenticated: req.isAuthenticated() })
+    getIndex: async (req, res) => {
+        if (req.isAuthenticated()) {
+            const data = await Student.find({}).lean()
+            res.render('index.ejs', { isAuthenticated: req.isAuthenticated(), info: data})
+
+        } else {
+            res.render('index.ejs', { isAuthenticated: req.isAuthenticated()})
+        }      
     },
 }

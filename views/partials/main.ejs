@@ -1,2 +1,28 @@
 <h1>This Is Where The Stuff Goes</h1>
 
+<div class="container" style="display: flex">
+    <div id="buttonContainer">
+        <button id="addStudent">Add Record</button>
+        <button id="addUser">Add User</button>
+    </div>
+    <div id="studentList">
+        <% for(let i = 0; i < info.length; i++) {%>
+            <div class="student" id=<%= info[i].id %>>
+                <div>
+                    <p>#:</p>
+                    <p>First Name:</p>
+                    <p>Last Name:</p>
+                    <p>Email:</p>
+                    <p>DOB: </p>
+                </div>
+                <div>
+                    <p><%= info[i].id %></p>
+                    <p><%= info[i].firstName %></p>
+                    <p><%= info[i].lastName %></p>
+                    <p><%= info[i].email %></p>
+                    <p><%= info[i].dateOfBirth %></p>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
