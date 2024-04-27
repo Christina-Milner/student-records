@@ -1,28 +1,68 @@
-<h1>This Is Where The Stuff Goes</h1>
 
-<div class="container" style="display: flex">
-    <div id="buttonContainer">
-        <button id="addStudent">Add Record</button>
-        <button id="addUser">Add User</button>
-    </div>
+<div class="otherContainer" style="display: flex">
+    <% if (isAdmin) {%>
+        <div class="card" id="buttonContainer">
+            <ul class="list-group list-group-flush">
+                <button id="addStudent">Add Record</button>
+                <button id="addUser">Add User</button>
+            </ul>
+        </div>
+    <% } %>
     <div id="studentList">
-        <% for(let i = 0; i < info.length; i++) {%>
-            <div class="student" id=<%= info[i].id %>>
-                <div>
-                    <p>#:</p>
-                    <p>First Name:</p>
-                    <p>Last Name:</p>
-                    <p>Email:</p>
-                    <p>DOB: </p>
+        <h2>Student Records</h2>
+        <div id="addStudentBox" class="hidden">
+            <form id="addStudentForm" action="/api/addStudent" method="POST">
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName">
                 </div>
-                <div>
-                    <p><%= info[i].id %></p>
-                    <p><%= info[i].firstName %></p>
-                    <p><%= info[i].lastName %></p>
-                    <p><%= info[i].email %></p>
-                    <p><%= info[i].dateOfBirth %></p>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName">
                 </div>
-            </div>
-        <% } %>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="text" class="form-control" id="email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                    <input type="text" class="form-control" id="dateOfBirth" name="dateOfBirth">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div id="addUserBox" class="hidden">
+            <form id="addUserForm" action="/addUser" method="POST">
+                <div class="mb-3">
+                    <label for="username" class="form-label">User Name</label>
+                        <input type="text" class="form-control" id="username" name="username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="text" class="form-control" id="password" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div id="students">
+            <% for(let i = 0; i < info.length; i++) {%>
+                <div class="student" id=<%= info[i].id %>>
+                    <div>
+                        <p>#:</p>
+                        <p>First Name:</p>
+                        <p>Last Name:</p>
+                        <p>Email:</p>
+                        <p>DOB: </p>
+                    </div>
+                    <div>
+                        <p><%= info[i].id %></p>
+                        <p><%= info[i].firstName %></p>
+                        <p><%= info[i].lastName %></p>
+                        <p><%= info[i].email %></p>
+                        <p><%= info[i].dateOfBirth %></p>
+                    </div>
+                </div>
+            <% } %>
+        </div>
     </div>
 </div>

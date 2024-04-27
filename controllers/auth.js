@@ -18,14 +18,14 @@ exports.postLogin = (req, res, next) => {
   
     if (validationErrors.length) {
       req.flash('errors', validationErrors)
-      return res.redirect('/login')
+      return res.redirect('/')
     }
   
     passport.authenticate('local', (err, user, info) => {
       if (err) { console.log("Error: ", err); return next(err) }
       if (!user) {
         req.flash('errors', info)
-        return res.redirect('/login')
+        return res.redirect('/')
       }
       req.logIn(user, (err) => {
         if (err) { return next(err) }

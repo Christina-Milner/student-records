@@ -1,0 +1,36 @@
+.hidden {
+    display: none;
+}
+
+.loginContainer {
+    display:flex;
+    flex-flow: column;
+    justify-self: center;
+    width: 200px;
+    margin: auto;
+}
+
+.container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.nofooter {
+    padding-bottom: 2.5em;
+}
+ 
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
+
+h1 {
+    margin-bottom: 2%;
+}
+
+.student {
+    display: flex;
+    gap: 2%;
+}

@@ -1,10 +1,20 @@
 const Student = require('../models/Student')
 const User = require('../models/User')
-// finish reading https://www.mongodb.com/blog/post/generating-globally-unique-identifiers-for-use-with-mongodb to sort this out
+const Counter = require('../models/Counter')
+
 module.exports = {
     // Helpers
+    getId: async () => {
+        const counterID = "662d1e486dda1335f1bb1429"
+        let count = await Counter.findById(counterID)
+        count.count += 1
+        await count.save()
+        return count.count
+    },
     checkIfAdmin: async (id) => {
-        const user = await User.find({_id: id})[0].lean()
+        const findMe = await User.find({_id: id}).exec()
+        const user = findMe[0]
+        console.log(user)
         return user && user.isAdmin
     },
     // Get - allowed for admin & non-admin
@@ -24,7 +34,8 @@ module.exports = {
     // CUD - admin only
     addStudent: async (req, res) => {
         const user = req.user
-        if (!this.checkIfAdmin(user)) {
+        const admin = await module.exports.checkIfAdmin(user)
+        if (!admin) {
             res.status(403).end()
         }
         const body = req.body
@@ -33,26 +44,26 @@ module.exports = {
                 error: "No info or name missing."
             })
         }
+        const id = await module.exports.getId()
         const student = new Student({
-            id: getId(),
+            id: id,
             firstName: body.firstName,
             lastName: body.lastName,
             email: body.email,
             dateOfBirth: body.dateOfBirth
         })
-        student.save((err, res) => {
-            if (err) {
-                res.status(500).end()
-            } else {
-                return res.json(student)
-            }
-        })
-
+        try {
+            await student.save()
+        } catch(err) {
+            res.status(500).end()
+        }
+        return res.json(student)
     },
 
     updateStudent: async (req, res) => {
         const user = req.user
-        if (!this.checkIfAdmin(user)) {
+        const admin = await module.exports.checkIfAdmin(user)
+        if (!admin) {
             res.status(403).end()
         }
         const body = req.body

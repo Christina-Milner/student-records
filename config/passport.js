@@ -5,7 +5,7 @@ const User = require('../models/User')
 module.exports = function(passport) {
     passport.use(new LocalStrategy(
     async function(username, password, done) {
-        let user = await User.findOne({ userName: username })
+        let user = await User.findOne({ username: username })
         if (!user) { return done(null, false, { msg: 'Invalid user name or password.'})}
         user.comparePassword(password, (err, isMatch) => {
           if (err) { return done(err)}

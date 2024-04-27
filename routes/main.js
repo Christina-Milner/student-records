@@ -13,6 +13,9 @@ router.get('/login', authController.getLogin)
 router.post('/login', authController.postLogin)
 router.get('/logout', authController.logout) 
 
+//Adding users
+router.post('/addUser', ensureAuth, homeController.addUser)
+
 // API
 
 router.get('/api/students', ensureAuth, apiController.getList)
