@@ -90,7 +90,8 @@ module.exports = {
 
     deleteStudent: async (req, res) => {
         const user = req.user
-        if (!module.exports.checkIfAdmin(user)) {
+        const admin = await module.exports.checkIfAdmin(user)
+        if (!admin) {
             res.render('error.ejs', {info: "You need admin privileges for that."})
         }
         const id = req.params.id

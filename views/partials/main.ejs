@@ -46,7 +46,9 @@
         </div>
         <div id="students">
             <% for(let i = 0; i < info.length; i++) {%>
-                <a href=<%=`/student${info[i].id}`%>>
+                <% if (isAdmin) {%>
+                    <a href=<%=`/student${info[i].id}`%>>
+                <% } %>
                     <div class="student" id=<%= info[i].id %>>
                         <div>
                             <p>#:</p>
@@ -63,7 +65,9 @@
                             <p><%= info[i].dateOfBirth %></p>
                         </div>
                     </div>
-                </a>
+                <% if (isAdmin) {%>
+                    </a>
+                <% } %>
             <% } %>
         </div>
     </div>
