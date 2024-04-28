@@ -9,7 +9,7 @@ const MongoStore = require('connect-mongo')
 const flash = require('express-flash')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
-
+ 
 // Config
 require('dotenv').config({path: './config/.env'})
 

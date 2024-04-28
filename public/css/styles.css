@@ -34,3 +34,12 @@ h1 {
     display: flex;
     gap: 2%;
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    background-color: rgb(185, 182, 182);
+}

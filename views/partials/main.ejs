@@ -11,7 +11,7 @@
     <div id="studentList">
         <h2>Student Records</h2>
         <div id="addStudentBox" class="hidden">
-            <form id="addStudentForm" action="/api/addStudent" method="POST">
+            <form id="addStudentForm" action="/addStudent" method="POST">
                 <div class="mb-3">
                     <label for="firstName" class="form-label">First Name</label>
                     <input type="text" class="form-control" id="firstName" name="firstName">
@@ -46,22 +46,24 @@
         </div>
         <div id="students">
             <% for(let i = 0; i < info.length; i++) {%>
-                <div class="student" id=<%= info[i].id %>>
-                    <div>
-                        <p>#:</p>
-                        <p>First Name:</p>
-                        <p>Last Name:</p>
-                        <p>Email:</p>
-                        <p>DOB: </p>
+                <a href=<%=`/student${info[i].id}`%>>
+                    <div class="student" id=<%= info[i].id %>>
+                        <div>
+                            <p>#:</p>
+                            <p>First Name:</p>
+                            <p>Last Name:</p>
+                            <p>Email:</p>
+                            <p>DOB: </p>
+                        </div>
+                        <div>
+                            <p><%= info[i].id %></p>
+                            <p><%= info[i].firstName %></p>
+                            <p><%= info[i].lastName %></p>
+                            <p><%= info[i].email %></p>
+                            <p><%= info[i].dateOfBirth %></p>
+                        </div>
                     </div>
-                    <div>
-                        <p><%= info[i].id %></p>
-                        <p><%= info[i].firstName %></p>
-                        <p><%= info[i].lastName %></p>
-                        <p><%= info[i].email %></p>
-                        <p><%= info[i].dateOfBirth %></p>
-                    </div>
-                </div>
+                </a>
             <% } %>
         </div>
     </div>

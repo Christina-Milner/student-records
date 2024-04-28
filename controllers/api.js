@@ -20,7 +20,7 @@ module.exports = {
     // Get - allowed for admin & non-admin
     getList: async (req, res) => {
         const data = await Student.find({}).lean()
-        return res.json(data)
+        res.json(data)
     },
     getStudent: async (req, res) => {
         const student = await Student.find({id: Number(req.params.id)}).lean()
@@ -78,17 +78,16 @@ module.exports = {
         student.lastName = body.lastName
         student.dateOfBirth = body.dateOfBirth
         student.email = body.email
-        student.save((err, res) => {
-            if (err) {
-                res.status(500).end()
-            } else {
-                return res.json(student)
-            }
-        })
+        try {
+            await student.save()
+            return res.json(student)
+        } catch (err) {
+            res.status(500).end()
+        }
     },
     deleteStudent: async (req, res) => {
         const user = req.user
-        if (!this.checkIfAdmin(user)) {
+        if (!module.exports.checkIfAdmin(user)) {
             res.status(403).end()
         }
         const id = req.params.id

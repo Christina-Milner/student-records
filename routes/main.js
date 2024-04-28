@@ -16,6 +16,13 @@ router.get('/logout', authController.logout)
 //Adding users
 router.post('/addUser', ensureAuth, homeController.addUser)
 
+// Web app routes
+
+router.post('/addStudent', ensureAuth, homeController.addStudent)
+router.get('/student:id', ensureAuth, homeController.getStudent)
+router.post('/student:id', ensureAuth, homeController.updateStudent)
+router.post('/delStudent:id', ensureAuth, homeController.deleteStudent)
+
 // API
 
 router.get('/api/students', ensureAuth, apiController.getList)
