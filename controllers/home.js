@@ -1,24 +1,13 @@
 const Student = require('../models/Student')
 const User = require('../models/User')
-const Counter = require('../models/Counter')
+
+const { getId, checkIfAdmin } = require('../helpers/helpers')
+
 
 module.exports = {
-    getId: async () => {
-        const counterID = "662d1e486dda1335f1bb1429"
-        let count = await Counter.findById(counterID)
-        count.count += 1
-        await count.save()
-        return count.count
-    },
-    checkIfAdmin: async (id) => {
-        const findMe = await User.find({_id: id}).exec()
-        const user = findMe[0]
-        return user && user.isAdmin
-    },
-
     addStudent: async (req, res) => {
         const user = req.user
-        const admin = await module.exports.checkIfAdmin(user)
+        const admin = await checkIfAdmin(user)
         if (!admin) {
             res.render('error.ejs', {info: "You need admin privileges for that."})
         }
@@ -26,7 +15,7 @@ module.exports = {
         if (!body || !body.firstName || !body.lastName) {
             res.render('error.ejs', {info: "Missing data to add student entry."})
         }
-        const id = await module.exports.getId()
+        const id = await getId()
         const student = new Student({
             id: id,
             firstName: body.firstName,
@@ -45,7 +34,7 @@ module.exports = {
     getIndex: async (req, res) => {
         if (req.isAuthenticated()) {
             const data = await Student.find()
-            const admin = await module.exports.checkIfAdmin(req.user)
+            const admin = await checkIfAdmin(req.user)
             res.render('index.ejs', { isAuthenticated: req.isAuthenticated(), info: data, isAdmin: admin})
 
         } else {
@@ -65,7 +54,7 @@ module.exports = {
     },
     updateStudent: async (req, res) => {
         const user = req.user
-        const admin = await module.exports.checkIfAdmin(user)
+        const admin = await checkIfAdmin(user)
         if (!admin) {
             res.render('error.ejs', {info: "You need admin privileges for that."})
         }
@@ -90,7 +79,7 @@ module.exports = {
 
     deleteStudent: async (req, res) => {
         const user = req.user
-        const admin = await module.exports.checkIfAdmin(user)
+        const admin = await checkIfAdmin(user)
         if (!admin) {
             res.render('error.ejs', {info: "You need admin privileges for that."})
         }
@@ -109,7 +98,7 @@ module.exports = {
     },
 
     addUser: async (req, res) => {
-        const admin = await module.exports.checkIfAdmin(req.user)
+        const admin = await checkIfAdmin(req.user)
         if (!admin) {
             res.render('error.ejs', {info: "You need admin privileges for that."})
         }
