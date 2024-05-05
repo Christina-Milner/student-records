@@ -1,5 +1,5 @@
-// Initial setup
-                      
+// Initial setup               
+                                                                                  
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -9,14 +9,14 @@ const MongoStore = require('connect-mongo')
 const flash = require('express-flash')
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
- 
+   
 // Config
-require('dotenv').config({path: './config/.env'})
-
+require('dotenv').config({path: './config/.env'}) 
+                   
 // Passport
 require('./config/passport')(passport)
 
-// More setup
+// More setup 
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))

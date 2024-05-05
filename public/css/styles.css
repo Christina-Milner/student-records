@@ -1,19 +1,51 @@
-.hidden {
-    display: none;
+/* Global */
+
+body {
+    font-family: 'Tahoma', 'Helvetica', 'sans-serif';
+    background-color: #E6E6F1;
 }
 
-.loginContainer {
-    display:flex;
-    flex-flow: column;
-    justify-self: center;
-    width: 200px;
-    margin: auto;
+button {
+    border: 0;
+    padding: 2%;
+    border-radius: 2;
 }
 
 .container {
     position: relative;
     min-height: 100vh;
 }
+
+.text-danger {
+    color: rgb(148, 50, 50);
+}
+
+.primary {
+    background-color: rgb(17, 17, 134);
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    background-color: rgb(185, 182, 182);
+}
+
+
+.hidden {
+    display: none;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* To get footer to stay where it belongs */
 
 .nofooter {
     padding-bottom: 2.5em;
@@ -26,6 +58,90 @@ footer {
     height: 2.5rem;
 }
 
+
+/* Decoration */
+
+#studentImage {
+    max-width: 30%;
+    border-radius: 60%;
+}
+
+#collegeLogo {
+    max-width: 490px;
+}
+
+.imagery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3%;
+}
+
+.rightOfImage {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.decoration {
+    margin-top: 2%;
+}
+
+/* Login form */
+
+form {
+    min-width: 100%;
+}
+
+.outerForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.forButton {
+    min-width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.loginContainer, .decoration {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1%;
+}
+
+.formLabels, .formFields {
+    display: flex;
+    flex-direction: column;
+    line-height: 2;
+    gap: 2%;
+}
+
+.formContainer {
+    margin: 2% 0;
+    display: flex;
+    gap: 10%;
+}
+
+.formContainer > div {
+    line-height: 2;
+}
+.formFields > input {
+    border: none;
+    padding: 0;
+    line-height: 2;
+    max-width: 100%;
+}
+
+
 h1 {
     margin-bottom: 2%;
 }
@@ -35,11 +151,3 @@ h1 {
     gap: 2%;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-a:hover {
-    background-color: rgb(185, 182, 182);
-}

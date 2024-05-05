@@ -27,6 +27,7 @@
     "express-flash": "^0.0.2",
     "mongoose": "^8.3.2",
     "nodemon": "^3.1.0",
+    "normalize.css": "^8.0.1",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "validator": "^13.11.0"
