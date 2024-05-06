@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Database</title>
+    <title>Student Administration</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
@@ -16,9 +16,15 @@
 <body>
     <div class="container">
         <div class="noFooter">
-            <header>
-                <h1 class="text-center">Student Database</h1>
-            </header>
+            <div class="decoration">
+                <div class="rightOfImage">
+                    <div class="logo">
+                        <img id="collegeLogo" src="./images/branston.png" alt="The logo of Branston College, showing an open book.">
+                        <h2>Branston College</h2>
+                    </div>
+                    <h1>Student Administration</h1>
+                </div>
+            </div>
             <div id="studentBox">
                 <form id="updateStudentForm" action="/student<%= info.id %>" method="POST">
                     <div class="mb-3">

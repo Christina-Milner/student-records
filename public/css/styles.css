@@ -21,7 +21,7 @@ button {
 }
 
 .primary {
-    background-color: rgb(17, 17, 134);
+    background-color: rgb(24, 28, 144);
     color: #fff;
 }
 
@@ -31,7 +31,7 @@ a {
 }
 
 a:hover {
-    background-color: rgb(185, 182, 182);
+    background-color: rgb(214, 214, 214);
 }
 
 
@@ -43,6 +43,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+h2, ul, li {
+    margin: 0;
 }
 
 /* To get footer to stay where it belongs */
@@ -149,5 +153,30 @@ h1 {
 .student {
     display: flex;
     gap: 2%;
+}
+
+/* Error page */
+
+.error {
+    margin: 0 auto;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5%;
+    padding: 5%;
+    text-align: center;
+}
+
+.back {
+    color: rgb(50, 136, 255)
+}
+
+/* Student list */
+
+.studentPage {
+    margin: 0 auto;
+    display: flex;
+
 }
 

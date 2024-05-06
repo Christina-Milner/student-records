@@ -8,10 +8,10 @@
         </div>
 </div>
 
-<div class="otherContainer" style="display: flex">
+<div class="studentPage">
     <% if (isAdmin) {%>
-        <div class="card" id="buttonContainer">
-            <ul class="list-group list-group-flush">
+        <div id="buttonContainer">
+            <ul>
                 <button id="addStudent">Add Record</button>
                 <button id="addUser">Add User</button>
             </ul>
@@ -60,7 +60,7 @@
                 <% } %>
                     <div class="student" id=<%= info[i].id %>>
                         <div>
-                            <p>#:</p>
+                            <p>ID:</p>
                             <p>First Name:</p>
                             <p>Last Name:</p>
                             <p>Email:</p>
