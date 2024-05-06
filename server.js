@@ -1,5 +1,5 @@
 // Initial setup               
-                                                                                      
+                                                                                       
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -12,19 +12,17 @@ const mainRoutes = require('./routes/main')
     
 // Config    
 require('dotenv').config({path: './config/.env'})    
-                   
+                       
 // Passport
 require('./config/passport')(passport)
   
 // More setup 
-
+    
 app.set('view engine', 'ejs')
 app.use(express.static('public'))   
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-
-console.log(process.env.DB_STRING)
-
+ 
 // Sessions
 app.use(
     session({

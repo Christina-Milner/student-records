@@ -93,7 +93,7 @@ footer {
 }
 
 .decoration {
-    margin-top: 2%;
+    margin-top: 1%;
 }
 
 /* Login form */
@@ -177,6 +177,15 @@ h1 {
 .studentPage {
     margin: 0 auto;
     display: flex;
+    margin-top: 2%;
+    padding-bottom: 2.5rem;
 
 }
 
+.students {
+    min-width: 60%;
+}
+
+.student {
+    line-height: 1;
+}
